@@ -1,10 +1,12 @@
-<?php 
-    if(isset($_POST["new_sql_session"])){
+<?php
+
+session_start(); 
+    if(isset($_POST["new_sql_session"])||(!isset($_SESSION["username"]))){
         session_destroy();
+        header("Location:login.php");
         $_POST = NULL;
     }
-    session_start();
-
+    echo "Welcome ".$_SESSION["username"];
 ?>
 <html>
     <head>
@@ -13,12 +15,14 @@
     <body>
         <form form="sql_console" method="post" action="mysqlview.php">
         <fieldset>
+        <!--
             <legend>Username</legend>
             <input type="text" name="username" value="<?php echo $_POST['username']; ?>" > <br>
             <legend>Password</legend>
             <input type="password" name="pass" value="<?php echo $_POST['pass'] ;?>"><br>
             <legend>Enter Database Name</legend>
             <input type="text" name="database" value="<?php echo $_POST['database']; ?>"><br>
+            -->
             <legend>Query</legend>
             <input type="text" name="query_statement" value="" style="width: 300px;">
             <input type="submit" name="query_submit" value="Submit SQL Query">
@@ -27,13 +31,13 @@
         </form>
         <div name="result_space_mysql">
             <?php
-            if(isset($_POST["username"]))
+            if(isset($_SESSION["username"])&&isset($_POST["query_statement"]))
                 try{
 
                     //echo $_POST["username"]." ".$_POST["pass"]." ".$_POST["query_statement"];
                     $connection_string = "mysql:host=%s;port=3306;dbname=%s";
-                    //echo sprintf($connection_string,"localhost",$_POST["database"])."<br>";
-                    $dbase = new PDO(sprintf($connection_string,"localhost",$_POST["database"]),$_POST["username"],$_POST["pass"]);  
+                    echo sprintf($connection_string,"localhost",$_SESSION["username"],$_SESSION["username"])."<br>";
+                    $dbase = new PDO(sprintf($connection_string,"localhost",$_SESSION["username"],$_SESSION["username"]),$_SESSION["username"],$_SESSION["password"]);  
                     $dbase->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     if($dbase)  echo "Connection securely established<br>";
                     foreach($dbase->query($_POST["query_statement"]) as $row){
