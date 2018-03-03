@@ -1,5 +1,10 @@
 <?php 
+    if(isset($_POST["new_sql_session"])){
+        session_destroy();
+        $_POST = NULL;
+    }
     session_start();
+
 ?>
 <html>
     <head>
@@ -16,7 +21,8 @@
             <input type="text" name="database" value="<?php echo $_POST['database']; ?>"><br>
             <legend>Query</legend>
             <input type="text" name="query_statement" value="" style="width: 300px;">
-            <input type="submit">
+            <input type="submit" name="query_submit" value="Submit SQL Query">
+            <input type="submit" name="new_sql_session" value="Start a new session">
         </fieldset>
         </form>
         <div name="result_space_mysql">
