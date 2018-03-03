@@ -88,7 +88,8 @@ catch (PDOException $e){
             session_start();
             echo "Hello ".$_SESSION["username"]."<br>";
             echo '
-                <a href="mysqlview.php"> My SQL Console</a>
+                <a href="mysqlview.php"> My SQL Console</a> <br>
+                <a href="uploadsite.php">Upload your Site</a>
             ';
         }
         ?>
