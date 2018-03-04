@@ -88,18 +88,6 @@ catch (PDOException $e){
             </fieldset>
             </form>
             <br>
-            <form action="login.php" method="post">
-                <fieldset>
-                To view site:
-                <legend>Enter the Username here</legend><br>
-                <input type="text" name="display_username">
-                <span>
-                    <input type="submit" name="display_submit" value="Country Roads Take me Home">
-                </span>
-                </fieldset>
-            
-            </form>
-            <br>
             
         </div>
             ';
@@ -112,6 +100,19 @@ catch (PDOException $e){
                 <a href="uploadsite.php">Upload your Site</a>
             ';
         }
+        echo ' 
+        <br>
+        <form action="login.php" method="post">
+            <fieldset>
+            To view site:
+            <legend>Enter the Username here</legend><br>
+            <input type="text" name="display_username">
+            <span>
+                <input type="submit" name="display_submit" value="Country Roads Take me Home">
+            </span>
+            </fieldset>
+        
+        </form>';
         ?>
     </body>
 </html>
