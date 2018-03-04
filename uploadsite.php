@@ -62,7 +62,7 @@
         <ol>
             <li>Make Sure you upload your Website Folder in a zip
             <li>rename the homepage index.php, you can redirect from there if you want
-            <li>Your site url will be live at site.com/yourusername/index.php
+            <li>Your site url will be live at site.com/users/&lt;your username&gt;/index.php
         </ol>
        <br>
        <form name="upload_form" method="post" action="uploadsite.php" enctype="multipart/form-data">
