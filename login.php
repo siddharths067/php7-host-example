@@ -72,6 +72,7 @@ catch (PDOException $e){
             <div name="login_div">
             <h1>Login Here</h1>
             <form action="login.php" method="post">
+                <fieldset>
                 <legend>Username</legend><br>
                 <input type="text" name="username">
                 <legend>Password</legend><br>
@@ -84,7 +85,7 @@ catch (PDOException $e){
                 Successful Signup redirects you to login page.
                 <br>
                 <br>
-                
+            </fieldset>
             </form>
             <br>
             <form action="login.php" method="post">
