@@ -84,13 +84,21 @@ catch (PDOException $e){
                 Successful Signup redirects you to login page.
                 <br>
                 <br>
+                
+            </form>
+            <br>
+            <form action="login.php" method="post">
+                <fieldset>
                 To view site:
-                <legend>Username</legend><br>
+                <legend>Enter the Username here</legend><br>
                 <input type="text" name="display_username">
                 <span>
-                    <input type="submit" name="display_submit" value="DISPLAY">
+                    <input type="submit" name="display_submit" value="Country Roads Take me Home">
                 </span>
+                </fieldset>
+            
             </form>
+            <br>
             
         </div>
             ';
