@@ -38,15 +38,18 @@ try{
                     session_destroy();
                     header("Location:regsuc.php");
                 }
-            }
+            } 
             
                 else{
                     echo "Please choose another username/password";
                     
 
                 }
-
-        
+            }
+    else if(isset($_POST["display_submit"])){
+        if(isset($_POST["display_username"])){
+            header('Location:'.sprintf("http://localhost/users/%s/index.php",$_POST["display_username"]));
+        }
     }
 }
 catch (PDOException $e){
@@ -79,6 +82,14 @@ catch (PDOException $e){
                 </span>
                 <br>
                 Successful Signup redirects you to login page.
+                <br>
+                <br>
+                To view site:
+                <legend>Username</legend><br>
+                <input type="text" name="display_username">
+                <span>
+                    <input type="submit" name="display_submit" value="DISPLAY">
+                </span>
             </form>
             
         </div>
