@@ -40,7 +40,7 @@
                     else{
                         echo "opening zip failed";
                     }*/
-                    system("unzip -d ".($_SERVER["DOCUMENT_ROOT"]."/users/".$_SESSION["username"])." ".$filepath);
+                    @system("unzip -d ".($_SERVER["DOCUMENT_ROOT"]."/users/".$_SESSION["username"])." ".$filepath." >  ".($_SERVER["DOCUMENT_ROOT"]."/users/".$_SESSION["username"]) ."/__upload_archive_log.txt ");
                 }
                 else{
                     echo "Moving File Failed";
