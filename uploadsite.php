@@ -56,6 +56,8 @@
 <html>
     <head>
         <title> Website Upload </title>
+
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
         <h1>The Rules are Simple<h1> <Br>
@@ -68,7 +70,11 @@
        <form name="upload_form" method="post" action="uploadsite.php" enctype="multipart/form-data">
             <legend>Choose File</legend>
             <input type="file" name="website">
-            <input type="submit" name="website_submit">
+            <input type="submit" name="website_submit"> <br>
        </form>
+       <br>
+       <div class="logout_block" onclick="window.location.href = 'logout.php'">
+         Logout
+       </div><br>
     </body>
 </html>

@@ -1,0 +1,9 @@
+.logout_block{
+    background:linear-gradient(white,grey);
+    color:black;
+    border-radius:8px;
+}
+
+.login_body{
+    background:radial-gradient(red,white);
+}

@@ -11,8 +11,13 @@ session_start();
 <html>
     <head>
         <title>The SQL Console</title>
+
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
+    <div class="logout_block" onclick="window.location.href = 'logout.php'">
+         Logout
+       </div><br>
         <form form="sql_console" method="post" action="mysqlview.php">
         <fieldset>
         <!--

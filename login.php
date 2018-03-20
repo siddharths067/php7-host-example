@@ -3,7 +3,10 @@ try{
     $connection_string = "mysql:host=%s;port=%s;dbname=%s";
     $dbase = new PDO(sprintf($connection_string,"localhost","3306","siteusers"),"root","siddharth");
     $dbase->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    if(isset($_POST["login_submit"])){
+    if(isset(_SESSION["username"])){
+        
+    }
+    else if(isset($_POST["login_submit"])){
             $ans = $dbase->query(sprintf("select * from login where username=\"%s\";",$_POST["username"]));
             //echo var_dump($ans);
             if($ans->rowCount()==0){
@@ -63,9 +66,16 @@ catch (PDOException $e){
 
 <html>
     <head>
-        <title> Login Page </title>
+        <title>Mezaban LLC</title>
+
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
-    <body>
+    <body class="login_body" >
+    <div name="title_bar">
+        <h1>
+            <center>Mezaban LLC<center>
+        </h1>
+    </div>
     <?php 
         if(!isset($_SESSION["username"])){
         echo '
@@ -93,26 +103,33 @@ catch (PDOException $e){
             ';
         }
         else{
-            session_start();
             echo "Hello ".$_SESSION["username"]."<br>";
             echo '
                 <a href="mysqlview.php"> My SQL Console</a> <br>
                 <a href="uploadsite.php">Upload your Site</a>
-            ';
+                <br>
+                <div class="logout_block" onclick="window.location.href = \'logout.php\'">
+                Logout
+              </div>
+
+                ';
         }
         echo ' 
         <br>
+        <div name="site_request_form">
         <form action="login.php" method="post">
             <fieldset>
             To view site:
             <legend>Enter the Username here</legend><br>
             <input type="text" name="display_username">
             <span>
-                <input type="submit" name="display_submit" value="Country Roads Take me Home">
+                <input type="submit" name="display_submit" value="Display">
             </span>
             </fieldset>
         
-        </form>';
+        </form>
+        </div>
+        ';
         ?>
     </body>
 </html>
